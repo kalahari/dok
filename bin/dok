@@ -1,0 +1,17 @@
+#! /bin/sh
+
+
+
+case "$1" in
+  debug)
+    echo "$(dirname $(readlink -f "$0"))/"
+    ls -aR "$(dirname $(readlink -f "$0"))/.."
+	;;
+  side|side-toggle)
+    osascript "$(dirname $(readlink -f "$0"))/../libexec/bin/dok-side-toggle.scpt"
+	;;
+  *)
+	echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload}" >&2
+	exit 3
+	;;
+esac
