@@ -2,6 +2,7 @@
 CLI to manipulate the macOS Dock
 
 ## install
+Install with Homebrew (https://brew.sh/)
 `brew install kalahari/tap/dok`
 
 ## usage
