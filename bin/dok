@@ -22,6 +22,9 @@ case "$1" in
   bottom|down)
     osascript "$BASE_DIR/libexec/bin/dok-bottom.scpt"
 	;;
+  autohide)
+    osascript "$BASE_DIR/libexec/bin/dok-autohide.scpt"
+	;;
   show)
     osascript "$BASE_DIR/libexec/bin/dok-show.scpt"
 	;;
@@ -29,16 +32,17 @@ case "$1" in
     osascript "$BASE_DIR/libexec/bin/dok-hide.scpt"
 	;;
   *)
-	echo "Usage: $SCRIPT_NAME {side|side-toggle|right|right-side|left|left-side|bottom|down}" >&2
-	echo "" >&2
-	echo "CLI to manipulate the macOS Dock" >&2
-	echo "" >&2
-	echo "    left   Move the dock to the left side of the screen." >&2
-	echo "    right  Move the dock to the right side of the screen." >&2
-	echo "    down   Move the dock to the bottom of the screen." >&2
-	echo "    side   Alternate the dock between the left and right sides of the screen." >&2
-	echo "    hide   Enable dock aut-hide mode." >&2
-	echo "    show   Disable dock aut-hide mode." >&2
-	exit 3
+    echo "dok: CLI to manipulate the macOS Dock" >&2
+    echo "" >&2
+    echo "Usage: $SCRIPT_NAME {side|right|left|bottom|down|autohide|show|hide}" >&2
+    echo "" >&2
+    echo "  left      Move the dock to the left side of the screen." >&2
+    echo "  right     Move the dock to the right side of the screen." >&2
+    echo "  down      Move the dock to the bottom of the screen." >&2
+    echo "  side      Alternate the dock between the left and right sides of the screen." >&2
+    echo "  hide      Enable dock autohide mode." >&2
+    echo "  show      Disable dock autohide mode." >&2
+    echo "  autohide  Toggle dock autohide mode." >&2
+    exit 3
 	;;
 esac

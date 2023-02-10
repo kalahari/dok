@@ -17,8 +17,11 @@ Move the dock to the bottom of the screen.
 `dok side`
 Alternate the dock between the left and right sides of the screen.
 
+`dok autohide`
+Toggle dock autohide mode.
+
 `dok hide`
-Enable dock aut-hide mode.
+Enable dock autohide mode.
 
 `dok show`
-Disable dock aut-hide mode.
+Disable dock autohide mode.
