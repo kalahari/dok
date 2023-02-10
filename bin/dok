@@ -1,17 +1,34 @@
 #! /bin/sh
 
-
+SCRIPT=$(readlink -f "$0")
+SCRIPT_DIR=$(dirname "$SCRIPT")
+SCRIPT_NAME=$(basename "$SCRIPT")
 
 case "$1" in
   debug)
-    echo "$(dirname $(readlink -f "$0"))/"
-    ls -aR "$(dirname $(readlink -f "$0"))/.."
+    echo "$SCRIPT_DIR/"
+    ls -aR "$SCRIPT_DIR/.."
 	;;
   side|side-toggle)
-    osascript "$(dirname $(readlink -f "$0"))/../libexec/bin/dok-side-toggle.scpt"
+    osascript "$SCRIPT_DIR/../libexec/bin/dok-side-toggle.scpt"
+	;;
+  right|right-side)
+    osascript "$SCRIPT_DIR/../libexec/bin/dok-right.scpt"
+	;;
+  left|left-side)
+    osascript "$SCRIPT_DIR/../libexec/bin/dok-left.scpt"
+	;;
+  bottom|down)
+    osascript "$SCRIPT_DIR/../libexec/bin/dok-bottom.scpt"
+	;;
+  show)
+    osascript "$SCRIPT_DIR/../libexec/bin/dok-show.scpt"
+	;;
+  hide)
+    osascript "$SCRIPT_DIR/../libexec/bin/dok-hide.scpt"
 	;;
   *)
-	echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload}" >&2
+	echo "Usage: $SCRIPT_NAME {side|side-toggle|right|right-side|left|left-side|bottom|down}" >&2
 	exit 3
 	;;
 esac
