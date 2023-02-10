@@ -2,33 +2,43 @@
 
 SCRIPT=$(readlink -f "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT")
+BASE_DIR=$(dirname "$SCRIPT_DIR")
 SCRIPT_NAME=$(basename "$SCRIPT")
 
 case "$1" in
   debug)
     echo "$SCRIPT_DIR/"
-    ls -aR "$SCRIPT_DIR/.."
+    ls -al "$BASE_DIR/"
 	;;
   side|side-toggle)
-    osascript "$SCRIPT_DIR/../libexec/bin/dok-side-toggle.scpt"
+    osascript "$BASE_DIR/libexec/bin/dok-side-toggle.scpt"
 	;;
   right|right-side)
-    osascript "$SCRIPT_DIR/../libexec/bin/dok-right.scpt"
+    osascript "$BASE_DIR/libexec/bin/dok-right.scpt"
 	;;
   left|left-side)
-    osascript "$SCRIPT_DIR/../libexec/bin/dok-left.scpt"
+    osascript "$BASE_DIR/libexec/bin/dok-left.scpt"
 	;;
   bottom|down)
-    osascript "$SCRIPT_DIR/../libexec/bin/dok-bottom.scpt"
+    osascript "$BASE_DIR/libexec/bin/dok-bottom.scpt"
 	;;
   show)
-    osascript "$SCRIPT_DIR/../libexec/bin/dok-show.scpt"
+    osascript "$BASE_DIR/libexec/bin/dok-show.scpt"
 	;;
   hide)
-    osascript "$SCRIPT_DIR/../libexec/bin/dok-hide.scpt"
+    osascript "$BASE_DIR/libexec/bin/dok-hide.scpt"
 	;;
   *)
 	echo "Usage: $SCRIPT_NAME {side|side-toggle|right|right-side|left|left-side|bottom|down}" >&2
+	echo "" >&2
+	echo "CLI to manipulate the macOS Dock" >&2
+	echo "" >&2
+	echo "    left   Move the dock to the left side of the screen." >&2
+	echo "    right  Move the dock to the right side of the screen." >&2
+	echo "    down   Move the dock to the bottom of the screen." >&2
+	echo "    side   Alternate the dock between the left and right sides of the screen." >&2
+	echo "    hide   Enable dock aut-hide mode." >&2
+	echo "    show   Disable dock aut-hide mode." >&2
 	exit 3
 	;;
 esac
