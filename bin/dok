@@ -9,28 +9,36 @@ case "$1" in
   debug)
     echo "$SCRIPT_DIR/"
     ls -al "$BASE_DIR/"
-	;;
+    ;;
   side|side-toggle)
     osascript "$BASE_DIR/libexec/bin/dok-side-toggle.scpt"
-	;;
+    ;;
   right|right-side)
     osascript "$BASE_DIR/libexec/bin/dok-right.scpt"
-	;;
+    ;;
   left|left-side)
     osascript "$BASE_DIR/libexec/bin/dok-left.scpt"
-	;;
+    ;;
   bottom|down)
     osascript "$BASE_DIR/libexec/bin/dok-bottom.scpt"
-	;;
+    ;;
   autohide)
     osascript "$BASE_DIR/libexec/bin/dok-autohide.scpt"
-	;;
+    ;;
   show)
     osascript "$BASE_DIR/libexec/bin/dok-show.scpt"
-	;;
+    ;;
   hide)
     osascript "$BASE_DIR/libexec/bin/dok-hide.scpt"
-	;;
+    ;;
+  display-position
+    osascript "$BASE_DIR/libexec/bin/dok-display-position.scpt"
+    ;;
+  display-autohide
+    osascript "$BASE_DIR/libexec/bin/dok-display-autohide.scpt"
+    ;;
+  display
+    echo "position: $(osascript $BASE_DIR/libexec/bin/dok-display-position.scpt), autohide: $(osascript $BASE_DIR/libexec/bin/dok-display-autohide.scpt)"
   *)
     echo "dok: CLI to manipulate the macOS Dock" >&2
     echo "" >&2
@@ -43,6 +51,7 @@ case "$1" in
     echo "  hide      Enable dock autohide mode." >&2
     echo "  show      Disable dock autohide mode." >&2
     echo "  autohide  Toggle dock autohide mode." >&2
+    echo "  display   Output dock position and autohide mode." >&2
     exit 3
-	;;
+    ;;
 esac
