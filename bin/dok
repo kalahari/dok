@@ -31,13 +31,13 @@ case "$1" in
   hide)
     osascript "$BASE_DIR/libexec/bin/dok-hide.scpt"
     ;;
-  display-position
+  display-position)
     osascript "$BASE_DIR/libexec/bin/dok-display-position.scpt"
     ;;
-  display-autohide
+  display-autohide)
     osascript "$BASE_DIR/libexec/bin/dok-display-autohide.scpt"
     ;;
-  display
+  display)
     echo "position: $(osascript $BASE_DIR/libexec/bin/dok-display-position.scpt), autohide: $(osascript $BASE_DIR/libexec/bin/dok-display-autohide.scpt)"
   *)
     echo "dok: CLI to manipulate the macOS Dock" >&2
