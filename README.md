@@ -26,3 +26,6 @@ Enable dock autohide mode.
 
 `dok show`
 Disable dock autohide mode.
+
+`dok display`
+Output the dock position and autohide mode.
