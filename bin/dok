@@ -39,6 +39,7 @@ case "$1" in
     ;;
   display)
     echo "position: $(osascript $BASE_DIR/libexec/bin/dok-display-position.scpt), autohide: $(osascript $BASE_DIR/libexec/bin/dok-display-autohide.scpt)"
+    ;;
   *)
     echo "dok: CLI to manipulate the macOS Dock" >&2
     echo "" >&2
